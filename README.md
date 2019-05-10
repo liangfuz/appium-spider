@@ -1,7 +1,7 @@
 # appium-data-capture
-利用自动化测试框架实现爬虫的功能
-运行效果：
-<img src="http://github-blog.oss-cn-shenzhen.aliyuncs.com/2019-3-1.gif"/>
+利用自动化测试框架实现爬虫的功能  
+
+<a href="http://github-blog.oss-cn-shenzhen.aliyuncs.com/2019-3-1.gif">运行效果</a>  
 项目结构：
 ```
 ├─ src
