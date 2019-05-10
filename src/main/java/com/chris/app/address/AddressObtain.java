@@ -2,6 +2,7 @@ package com.chris.app.address;
 
 import com.chris.bean.AmapGeo;
 import com.chris.bean.AmapReGeo;
+import com.chris.util.AmapUtil;
 import com.chris.util.HttpClientUtil;
 import com.chris.util.PinyinUtil;
 import com.google.gson.Gson;
@@ -65,7 +66,6 @@ public class AddressObtain {
         }
         return amapReGeo;
     }
-/*
     public static void main(String[] args) {
         List<String> addrs = new ArrayList<>();
         AmapGeo locationByAddress = getLocationByAddress("深圳", "国人通信大厦");
@@ -83,14 +83,14 @@ public class AddressObtain {
             }
         });
         System.out.println(addrs);
-    }*/
+    }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
         List<String> addressList = addressList();
         addressList.forEach(address->{
             System.out.println(address);
         });
-    }
+    }*/
 
     public static List<String> addressList(){
         List<String> addressList = new ArrayList<>();
