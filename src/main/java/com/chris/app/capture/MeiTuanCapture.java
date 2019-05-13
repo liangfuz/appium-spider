@@ -189,7 +189,12 @@ public class MeiTuanCapture extends BaseTest {
                         String distanceText = distance.getText();
                         mtResInfo.setDistance(distanceText);
                         if (distanceText.contains("km")){
-                            continueFlag = false;
+                            //3公里换爬取地址
+                            distanceText = distanceText.replace("km","");
+                            Double dis = Double.parseDouble(distanceText);
+                            if (dis>3){
+                                continueFlag = false;
+                            }
                         }
                     }catch (Exception ex){
                     }
