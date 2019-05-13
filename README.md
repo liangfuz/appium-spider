@@ -7,32 +7,30 @@
 ├─ src
 │  └─ main
 │     ├─ java
-│     │  ├─ com
-│     │  │  └─ chris
-│     │  │     ├─ app
-│     │  │     │  ├─ address
-│     │  │     │  │  └─ AddressObtain.java
-│     │  │     │  ├─ capture
-│     │  │     │  │  └─ MeiTuanCapture.java
-│     │  │     │  └─ storm
-│     │  │     │     └─ DataHandleStormTopology.java
-│     │  │     ├─ bean
-│     │  │     │  ├─ AmapGeo.java
-│     │  │     │  ├─ AmapReGeo.java
-│     │  │     │  ├─ BaseTest.java
-│     │  │     │  ├─ ElemeResInfo.java
-│     │  │     │  └─ MtResInfo.java
-│     │  │     ├─ util
-│     │  │     │  ├─ AmapUtil.java
-│     │  │     │  ├─ HttpClientUtil.java
-│     │  │     │  ├─ KafkaProperties.java
-│     │  │     │  ├─ KafkaReceive.java
-│     │  │     │  ├─ KafkaSend.java
-│     │  │     │  ├─ MongoDbSave.java
-│     │  │     │  └─ PinyinUtil.java
-│     │  │     └─ Application.java
-│     │  ├─ AppiumTest.java
-│     │  └─ BaseTest.java
+│     │  └─ com
+│     │     └─ chris
+│     │        ├─ app
+│     │        │  ├─ address
+│     │        │  │  └─ AddressObtain.java
+│     │        │  ├─ capture
+│     │        │  │  └─ MeiTuanCapture.java
+│     │        │  └─ storm
+│     │        │     └─ DataHandleStormTopology.java
+│     │        ├─ bean
+│     │        │  ├─ AmapGeo.java
+│     │        │  ├─ AmapReGeo.java
+│     │        │  ├─ BaseTest.java
+│     │        │  ├─ ElemeResInfo.java
+│     │        │  └─ MtResInfo.java
+│     │        ├─ util
+│     │        │  ├─ AmapUtil.java
+│     │        │  ├─ HttpClientUtil.java
+│     │        │  ├─ KafkaProperties.java
+│     │        │  ├─ KafkaReceive.java
+│     │        │  ├─ KafkaSend.java
+│     │        │  ├─ MongoDbSave.java
+│     │        │  └─ PinyinUtil.java
+│     │        └─ Application.java
 │     └─ resources
 │        ├─ address.txt
 │        ├─ application.properties

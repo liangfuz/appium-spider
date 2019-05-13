@@ -70,30 +70,40 @@ public class MeiTuanCapture extends BaseTest {
         try {
             AndroidElement close = (AndroidElement)driver.findElementById("close");
             close.click();
+            sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
         try {
             AndroidElement close = (AndroidElement)driver.findElementById("wm_upgrade_force_cancel");
             close.click();
+            sleep(1000);
         }catch (Exception e){
             e.printStackTrace();
         }
         boolean first = true;
         AndroidElement city_button = (AndroidElement)driver.findElementById("layout_location_box");
         city_button.click();
+        sleep(1000);
         AndroidElement city_text = (AndroidElement)driver.findElementById("wm_address_city_location_text");
         city_text.click();
+        sleep(1000);
         AndroidElement shenzhen = (AndroidElement)driver.findElementById("waimai_addrsdk_search_edittext");
         shenzhen.sendKeys("shenzhen");
         sleep(1000);
         AndroidElement shenzhenKey = (AndroidElement)driver.findElementById("waimai_addrsdk_choose_city_txt");
         shenzhenKey.click();
+        sleep(1000);
         for (String addr :
                 addressList) {
             if (!first){
 //                AndroidElement city_button2 = (AndroidElement)driver.findElementById("layout_location_box");
-                city_button.click();
+                try{
+                    city_button.click();
+                    sleep(1000);
+                }catch (Exception e){
+                    e.printStackTrace();
+                }
             }
             System.out.println("爬取地址："+addr);
             AndroidElement addrEle = (AndroidElement)driver.findElementById("address_search_map_txt");
@@ -103,6 +113,7 @@ public class MeiTuanCapture extends BaseTest {
             try {
                 addrHeader = (AndroidElement)driver.findElementById("txt_map_adapter_name");
                 addrHeader.click();
+                sleep(1000);
             }catch (Exception e){
                 try {
                     WebElement back = driver.findElementById("back");
@@ -118,6 +129,7 @@ public class MeiTuanCapture extends BaseTest {
                     eElements) {
                 if (ele.getText().equals("美食")) {
                     ele.click();
+                    sleep(1000);
                     break;
                 }
             }
@@ -129,6 +141,7 @@ public class MeiTuanCapture extends BaseTest {
                     filter_text) {
                 if (me.getText().equals("距离")){
                     me.click();
+                    sleep(1000);
                     break;
                 }
             }
@@ -193,27 +206,34 @@ public class MeiTuanCapture extends BaseTest {
                     }
                     System.out.println(mtResInfo);
                     poi_name.click();
-                    List<WebElement> takeout_txt_tab = driver.findElementsById("takeout_txt_tab");
-                    if (takeout_txt_tab!=null){
-                        for (WebElement tab :
-                                takeout_txt_tab) {
-                            if (tab.getText().equals("商家")){
-                                tab.click();
-                                WebElement txt_poi_address = driver.findElementById("txt_poi_address");
-                                String address = txt_poi_address.getText();
-                                System.out.println("地址：" + address);
-                                mtResInfo.setAddress(address);
-                                AmapGeo location = AddressObtain.getLocationByAddress("深圳", address);
-                                if (location.getGeocodes()!=null){
-                                    String lonlat = location.getGeocodes().get(0).getLocation();
-                                    String[] split = lonlat.split(",");
-                                    String lon = split[0];
-                                    String lat = split[1];
-                                    mtResInfo.setLongitude(Double.parseDouble(lon));
-                                    mtResInfo.setLatitude(Double.parseDouble(lat));
+                    sleep(1000);
+                    try {
+
+                        List<WebElement> takeout_txt_tab = driver.findElementsById("takeout_txt_tab");
+                        if (takeout_txt_tab!=null){
+                            for (WebElement tab :
+                                    takeout_txt_tab) {
+                                if (tab.getText().equals("商家")){
+                                    tab.click();
+                                    sleep(1000);
+                                    WebElement txt_poi_address = driver.findElementById("txt_poi_address");
+                                    String address = txt_poi_address.getText();
+                                    System.out.println("地址：" + address);
+                                    mtResInfo.setAddress(address);
+                                    AmapGeo location = AddressObtain.getLocationByAddress("深圳", address);
+                                    if (location.getGeocodes()!=null){
+                                        String lonlat = location.getGeocodes().get(0).getLocation();
+                                        String[] split = lonlat.split(",");
+                                        String lon = split[0];
+                                        String lat = split[1];
+                                        mtResInfo.setLongitude(Double.parseDouble(lon));
+                                        mtResInfo.setLatitude(Double.parseDouble(lat));
+                                    }
                                 }
                             }
                         }
+                    }catch (Exception ex){
+                        ex.printStackTrace();
                     }
                     if (StringUtils.isNotEmpty(mtResInfo.getResName())){
                         mongoDbSave.save(mtResInfo);
@@ -223,9 +243,11 @@ public class MeiTuanCapture extends BaseTest {
                         tmp.add(mtResInfo.getResHashCode());
                         resCount++;
                     }
+                    sleep(1000);
                     try {
                         WebElement back = driver.findElementById("img_back_light");
                         back.click();
+                        sleep(1000);
                     }catch (Exception e1){
                         e1.printStackTrace();
                     }
@@ -250,6 +272,7 @@ public class MeiTuanCapture extends BaseTest {
                 first = false;
                 WebElement back = driver.findElementById("back");
                 back.click();
+                sleep(1000);
             }catch (Exception e1){
                 e1.printStackTrace();
             }
