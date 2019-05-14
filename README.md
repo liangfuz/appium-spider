@@ -43,6 +43,9 @@
 2. 爬取核心爬虫实现：利用自动化测试框架Appium实现模拟人工操作，同时获取元素值以获得门店相关信息，存入mongodbDb或发送至Kafka（MeiTuanCapture）。
 3. 数据处理：使用Storm实时处理分析爬取到的数据（DataHandleStormTopology）。
 
+项目流程：  
+<img src="http://github-blog.oss-cn-shenzhen.aliyuncs.com/20190514.png"/>
+
 PS：由于App会经常更新，所以爬虫代码需要保持维护才能使用。
 环境搭建详见我的博客<a href="https://blog.developabc.com/2019/03/01/appium.html">Appium搭建爬虫环境</a>  
 
