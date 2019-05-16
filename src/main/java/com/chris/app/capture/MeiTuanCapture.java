@@ -199,6 +199,11 @@ public class MeiTuanCapture extends BaseTest {
                     }catch (Exception ex){
                     }
                     try {
+                        WebElement voucherInfo = webElement.findElement(By.id("flowlayout_activities_line"));
+                        mtResInfo.setVoucherInfo(voucherInfo.getText());
+                    }catch (Exception ex){
+                    }
+                    try {
                         WebElement monthSale = webElement.findElement(By.id("textview_month_sales_tip"));
                         mtResInfo.setMonthSale(monthSale.getText());
                     }catch (Exception ex){
@@ -237,6 +242,9 @@ public class MeiTuanCapture extends BaseTest {
                                 }
                             }
                         }
+                        WebElement txt_delivery_time = driver.findElementById("txt_delivery_time");
+                        String deliveryTime = txt_delivery_time.getText();
+                        mtResInfo.setDeliveryTime(deliveryTime);
                     }catch (Exception ex){
                         ex.printStackTrace();
                     }
